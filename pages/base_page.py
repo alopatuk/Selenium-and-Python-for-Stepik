@@ -1,8 +1,10 @@
-from telnetlib import EC
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 import math
-from selenium.webdriver.support.wait import WebDriverWait
-from pages.locators import BasePageLocators
 
 
 class BasePage:

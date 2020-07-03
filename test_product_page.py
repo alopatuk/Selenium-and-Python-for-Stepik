@@ -72,11 +72,10 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
-    page = ProductPage(browser, link)
+    page = BasketPage(browser, link)
     page.open()
-    page.should_enter_basket()
-    page2 = BasketPage(browser, browser.current_url)
-    page2.is_basket_empty()
-    page2.should_be_basket_empty_message()
+    page.should_click_on_view_basket_button()
+    page.should_be_basket_empty()
+    page.should_be_basket_empty_message()
 
 
