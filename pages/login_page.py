@@ -26,3 +26,14 @@ class LoginPage(BasePage):
                                                                                          "presented "
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_BUTTON), "Button for registration is not " \
                                                                                 "presented "
+
+    def register_new_user(self, email, password):
+        new_user_email = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
+        new_user_email.send_keys(email)
+        new_user_password = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD)
+        new_user_password.send_keys(password)
+        new_user_password_confirm = self.browser.find_element(*LoginPageLocators.REGISTRATION_REPLAY_PASSWORD)
+        new_user_password_confirm.send_keys(password)
+        register_button = self.browser.find_element(*LoginPageLocators.REGISTRATION_BUTTON)
+        register_button.click()
+
